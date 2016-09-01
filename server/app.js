@@ -17,6 +17,8 @@ require('mongoose').connect(MONGO_URI, err => {
   console.log(`MongoDB connected to ${MONGO_URI}`);
 });
 
+mongoose.Promise = Promise;
+
 // APP DECLARATION
 const app = express();
 
