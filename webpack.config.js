@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   debug: true,
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
     'bootstrap-loader',

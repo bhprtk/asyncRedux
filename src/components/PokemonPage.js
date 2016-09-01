@@ -2,31 +2,33 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchPokemon } from '../actions/PokemonActions';
 
+import PokemonList from './PokemonList';
+
 class PokemonPage extends Component {
 	componentWillMount() {
 		this.props.fetchPokemon();
 	}
 	render() {
-		console.log ('this.props.pokemon:', this.props.pokemon)
+		const { pokemon } = this.props;
 		return (
-			<h1 className="text-center">
-				PokemonPage
-			</h1>
+			<div>
+				<h1 className="text-center">
+					PokemonPage
+				</h1>
+				<PokemonList pokemon={pokemon} />
+			</div>
+
 		)
 	}
 }
 
 export default connect(
-	state => {
-		return {
-			pokemon: state.pokemon
+	state => ({
+		pokemon: state.pokemon
+	}),
+	dispatch => ({
+		fetchPokemon() {
+			dispatch(fetchPokemon())
 		}
-	},
-	dispatch => {
-		return {
-			fetchPokemon() {
-				dispatch(fetchPokemon())
-			}
-		}
-	}
+	})
 )(PokemonPage);
