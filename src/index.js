@@ -5,13 +5,17 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import Layout from './components/Layout';
 import Splash from './components/Splash';
-// import store from './store';
+import PokemonPage from './components/PokemonPage';
+import store from './store';
 
 render(
+  <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={Layout}>
         <IndexRoute component={Splash} />
+        <Route path='/pokemon' component={PokemonPage} />
       </Route>
-    </Router>,
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
