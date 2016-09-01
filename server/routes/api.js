@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-app.use('/pokemon', require('./routes/pokemon'));
+router.use('/pokemon', require('./pokemon'));
 
 
 module.exports = router;

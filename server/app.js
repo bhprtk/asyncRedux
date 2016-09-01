@@ -10,9 +10,10 @@ const morgan = require('morgan');
 const path = require('path');
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config');
+const mongoose = require('mongoose');
 
 // DB CONNECT
-require('mongoose').connect(MONGO_URI, err => {
+mongoose.connect(MONGO_URI, err => {
   if(err) throw err;
   console.log(`MongoDB connected to ${MONGO_URI}`);
 });
